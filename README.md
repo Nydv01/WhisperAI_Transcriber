@@ -1,4 +1,4 @@
-# 🎙️ WhisperAI Transcription App (macOS Version)
+# 🎙️ WhisperAI Transcription App
 
 A lightweight web app for transcribing `.mp3` or `.wav` files using OpenAI’s Whisper model and Streamlit.
 
