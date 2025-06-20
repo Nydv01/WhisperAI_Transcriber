@@ -3,6 +3,7 @@
 A lightweight, fast, and intuitive web app that **transcribes English audio files** (MP3/WAV) into text using **OpenAI's Whisper model** — all within a clean **Streamlit** interface.
 
 > Built with 💡 by **Nitin Yadav**, **Krish Mittal**, **Aditya Jain**, and **Aryak**.
+>HERE'S THE LINK TO THE DEMO VIDEO WHICH SHOWS THE WORKING: https://drive.google.com/file/d/1oEfZ_PT9F3oX-m8UDRqjEQEt4wiIljMJ/view?usp=sharing
 
 ---
 
