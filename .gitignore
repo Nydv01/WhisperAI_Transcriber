@@ -1,0 +1,10 @@
+Whisperai/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.srt
+*.mp3
+*.wav
+.env
+.DS_Store
