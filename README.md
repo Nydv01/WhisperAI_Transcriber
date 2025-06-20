@@ -14,6 +14,12 @@ A lightweight, fast, and intuitive web app that **transcribes English audio file
 
 ---
 
+Output Screenshot:
+<img width="844" alt="Screenshot 2025-06-20 at 5 23 26 PM" src="https://github.com/user-attachments/assets/6e65ea73-aacf-445d-b09f-5195fd7a942c" />
+
+
+
+
 ## 🧠 Key Features
 
 ✅ Upload audio files (`.mp3` / `.wav`)  
