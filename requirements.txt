@@ -1,0 +1,11 @@
+# Core dependencies
+streamlit
+tqdm
+librosa
+soundfile
+ffmpeg-python
+numpy
+scipy
+torch
+# Install whisper directly from GitHub
+git+https://github.com/openai/whisper.git
