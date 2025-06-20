@@ -123,10 +123,6 @@ Librosa
 📝 License
 MIT License © Nydv01
 
-yaml
-Copy
-Edit
-
 ---
 
 
