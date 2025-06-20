@@ -129,9 +129,4 @@ Edit
 
 ---
 
-💡 **Tips**:
-- This format is GitHub Markdown-compliant.
-- No need to change file extensions—just paste this directly into the README editor online.
-- Use the "Preview" tab in GitHub to make sure everything renders perfectly.
 
-Let me know if you’d also like to generate a demo video or a logo badge!
