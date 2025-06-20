@@ -1,110 +1,137 @@
-🎧 WhisperAI Transcriber (macOS)
+# 🎙️ WhisperAI Transcription App (macOS Version)
 
-A sleek, lightweight, and easy-to-use Streamlit web application that uses OpenAI's Whisper model to transcribe English audio into accurate text.
+A lightweight web app for transcribing `.mp3` or `.wav` files using OpenAI’s Whisper model and Streamlit.
 
-Upload an .mp3 or .wav file and get back clean English text, with the option to download the result in .srt subtitle format.
+🔗 **GitHub Repo**: [https://github.com/Nydv01/WhisperAI_Transcriber](https://github.com/Nydv01/WhisperAI_Transcriber)
 
-🚀 Features
+---
 
-🔊 Upload clear English audio files (.mp3, .wav)
+## 🚀 Features
 
-✨ Transcribe using OpenAI Whisper (Base model)
+- 📤 Upload MP3/WAV files
+- 🧠 Transcribe audio using OpenAI Whisper (base model)
+- 📄 View transcript in-browser
+- 💾 Download transcript as `.srt`
+- ⚡ Fast and easy interface with Streamlit
 
-📄 Display transcription directly in the browser
+---
 
-🔗 Download the transcription as .srt subtitle format
+## 🖥️ Project Structure
 
-🔸 Simple and interactive UI using Streamlit
+WhisperAI_Transcriber/
+│
+├── app.py # Main Streamlit app
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
+└── Whisperai/ # Python virtual environment (ignored)
 
-🚲 Quick Demo
+yaml
+Copy
+Edit
 
- 
+---
 
-🔧 Tech Stack
+## 📦 Installation (macOS)
 
-Frontend/UI: Streamlit
+### 🧰 Prerequisites
 
-Model: OpenAI Whisper (base model)
+- Python 3.10+ (recommended with pyenv)
+- [Homebrew](https://brew.sh/)
+- Git
 
-Audio Processing: librosa, ffmpeg, wave
+---
 
-🪧 Installation (macOS)
+### 1️⃣ Clone the Repository
 
-1. Clone the Repository
-
+```bash
 git clone https://github.com/Nydv01/WhisperAI_Transcriber.git
 cd WhisperAI_Transcriber
-
-2. Create and Activate Virtual Environment
-
+2️⃣ Set Up Virtual Environment
+bash
+Copy
+Edit
 python3 -m venv Whisperai
 source Whisperai/bin/activate
-
-3. Install Dependencies
-
-brew install ffmpeg  # Required for Whisper to handle audio
-pip install -r requirements.txt
-
-4. Run the App
-
+3️⃣ Install Dependencies
+bash
+Copy
+Edit
+brew install ffmpeg
+pip install streamlit openai-whisper librosa tqdm
+4️⃣ Run the App
+bash
+Copy
+Edit
 streamlit run app.py
+Then open your browser to http://localhost:8501
 
-Once running, your browser will open http://localhost:8501
+📜 Sample Code (app.py)
+python
+Copy
+Edit
+import streamlit as st
+import whisper
+import tempfile
 
-🔹 Usage Instructions
+# Load Whisper base model
+model = whisper.load_model("base")
 
-Launch the app with streamlit run app.py
+def transcribe(audio_file):
+    with tempfile.NamedTemporaryFile(delete=False, suffix=audio_file.name.split('.')[-1]) as tmp:
+        tmp.write(audio_file.read())
+        tmp_path = tmp.name
 
-Upload your English audio file (.mp3 or .wav)
+    result = model.transcribe(tmp_path, language="en")
+    return result["text"]
 
-Let the model transcribe it (progress bar shows loading)
+def main():
+    st.title("🎙️ WhisperAI Audio Transcription")
+    st.write("Upload an MP3 or WAV file to get its transcription.")
 
-View the transcribed text
+    audio_file = st.file_uploader("Upload your audio file", type=["mp3", "wav"])
+    if audio_file:
+        with st.spinner("Transcribing..."):
+            text = transcribe(audio_file)
+        if text:
+            st.success("Transcription Complete ✅")
+            st.write(text)
+            st.download_button("📥 Download as SRT", f"1\n00:00:00,000 --> 00:00:10,000\n{text}", file_name="transcription.srt")
 
-Optionally download the output as an .srt subtitle file
+if __name__ == "__main__":
+    main()
+📹 Demo (Optional)
+Add a short video or GIF showing the app in use.
 
-🔮 Sample Output
+🧩 Future Improvements
+ Support other Whisper models (tiny, medium, large)
 
-Input Audio
+ Multilingual transcription
 
-Transcribed Text
+ Better timestamping in SRT
 
-meeting.mp3
+ Drag-and-drop audio UI
 
-"Welcome to the quarterly review..."
+ Upload audio via URL
 
-lecture.wav
+🙏 Credits
+OpenAI Whisper
 
-"In this chapter, we discuss machine learning."
+Streamlit
 
-🚨 Troubleshooting
+Librosa
 
-ffmpeg not found: Make sure ffmpeg is installed via brew install ffmpeg
+📝 License
+MIT License © Nydv01
 
-Model errors: Ensure you’re connected to the internet when Whisper model is first loaded
+yaml
+Copy
+Edit
 
-Incorrect transcription: Make sure the input is clear English audio (no background noise, good mic)
+---
 
-👨‍💻 Author
+💡 **Tips**:
+- This format is GitHub Markdown-compliant.
+- No need to change file extensions—just paste this directly into the README editor online.
+- Use the "Preview" tab in GitHub to make sure everything renders perfectly.
 
-Nitin YadavGitHub: @Nydv01
-
-📁 Repository
-
-https://github.com/Nydv01/WhisperAI_Transcriber
-
-📄 License
-
-This project is licensed under the MIT License.
-
-🚀 Future Plans
-
-Add support for Hindi and other languages
-
-Subtitle editor for fine-tuning lines
-
-Mobile-friendly UI
-
-Export formats: .txt, .docx, .vtt
-
-If you find this helpful, give it a ⭐️ on GitHub!
+Let me know if you’d also like to generate a demo video or a logo badge!
